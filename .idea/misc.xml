@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/MVVMNotesApp/app/src/main/res/drawable/ic_tick.xml" value="0.121" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/MVVMNotesApp/app/src/main/res/drawable/low_priority_bg.xml" value="0.121" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/MVVMNotesApp/app/src/main/res/drawable/medium_priority_bg.xml" value="0.121" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/MVVMNotesApp/app/src/main/res/drawable/red_bg.xml" value="0.121" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/MVVMNotesApp/app/src/main/res/layout/activity_add_notes.xml" value="0.16" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/MVVMNotesApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/MVVMNotesApp/app/src/main/res/layout/activity_update_notes.xml" value="0.17083333333333334" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/MVVMNotesApp/app/src/main/res/layout/notes_sample_layout.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
