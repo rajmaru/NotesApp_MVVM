@@ -1,32 +1,30 @@
 package com.one.mvvmnotesapp;
 
-import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
-    Context context;
+    MainActivity mainActivity;
     List<NotesEntity> notesEntityList;
 
-    public NotesAdapter(Context context, List<NotesEntity> notesEntityList) {
-        this.context = context;
+    public NotesAdapter(MainActivity mainActivity, List<NotesEntity> notesEntityList) {
+        this.mainActivity = mainActivity;
         this.notesEntityList = notesEntityList;
     }
 
     @NonNull
     @Override
     public NotesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.notes_sample_layout, parent, false);
+        View view = LayoutInflater.from(mainActivity).inflate(R.layout.notes_sample_layout, parent, false);
         return new NotesViewHolder(view);
     }
 
@@ -37,12 +35,26 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         holder.notes.setText(notesEntity.notes);
         holder.date.setText(notesEntity.notesDate);
         if(notesEntity.notesPriority.equals("1")){
-            holder.priority.setBackgroundColor(context.getResources().getColor(R.color.navy_dark));
+            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.navy_dark));
         }else if(notesEntity.notesPriority.equals("2")){
-            holder.priority.setBackgroundColor(context.getResources().getColor(R.color.navy_medium));
+            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.navy_medium));
         }else{
-            holder.priority.setBackgroundColor(context.getResources().getColor(R.color.navy_light));
+            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.navy_light));
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mainActivity, UpdateNotes.class);
+                intent.putExtra("id", notesEntity.id);
+                intent.putExtra("title", notesEntity.notesTitle);
+                intent.putExtra("priority", notesEntity.notesPriority);
+                intent.putExtra("notes", notesEntity.notes);
+                intent.putExtra("date", notesEntity.notesDate);
+                mainActivity.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

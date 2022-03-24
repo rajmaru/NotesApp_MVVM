@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.one.mvvmnotesapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,20 +37,20 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = isGridPreferences.edit();
         isGrid = isGridPreferences.getBoolean("isGrid", true);
 
+        if (isGrid) {
+            binding.chanegLayout.setImageResource(R.drawable.ic_linearlayout);
+            binding.notesRecyclerview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        } else {
+            binding.chanegLayout.setImageResource(R.drawable.ic_gridlayout);
+            binding.notesRecyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
+        }
+
         binding.addNotesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, AddNotes.class));
             }
         });
-
-        if (isGrid) {
-            binding.chanegLayout.setImageResource(R.drawable.ic_linearlayout);
-            binding.notesRecyclerview.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
-        } else {
-            binding.chanegLayout.setImageResource(R.drawable.ic_gridlayout);
-            binding.notesRecyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
-        }
 
         binding.chanegLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,12 +66,19 @@ public class MainActivity extends AppCompatActivity {
                     editor.putBoolean("isGrid", isGrid);
                     editor.apply();
                     binding.chanegLayout.setImageResource(R.drawable.ic_linearlayout);
-                    binding.notesRecyclerview.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+                    binding.notesRecyclerview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
                 }
             }
         });
 
         notesViewModel.getAllNotes.observe(this, notesEntities -> {
+            if (isGrid) {
+                binding.chanegLayout.setImageResource(R.drawable.ic_linearlayout);
+                binding.notesRecyclerview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+            } else {
+                binding.chanegLayout.setImageResource(R.drawable.ic_gridlayout);
+                binding.notesRecyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
+            }
             adapter = new NotesAdapter(this, notesEntities);
             binding.notesRecyclerview.setAdapter(adapter);
         });

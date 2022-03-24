@@ -64,13 +64,13 @@
             android:id="@+id/notes_recyclerview"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarLayout"
-            app:layout_constraintVertical_bias="1.0"
             tools:listitem="@layout/notes_sample_layout">
 
         </androidx.recyclerview.widget.RecyclerView>
@@ -81,16 +81,19 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:clickable="true"
             android:backgroundTint="@color/navy_dark"
-            app:tint="@color/white"
-            app:rippleColor="@color/navy_medium"
+            android:clickable="true"
+            android:contentDescription="@string/todo"
+            android:focusable="true"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:rippleColor="@color/navy_medium"
             app:srcCompat="@drawable/ic_add"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:focusable="true"
-            android:contentDescription="@string/todo" />
+            app:tint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
