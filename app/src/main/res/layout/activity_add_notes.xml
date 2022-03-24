@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/light_white">
+        android:background="@color/background">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/toolbarLayout"
@@ -91,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Title"
                 android:inputType="text"
+                android:textColor="@color/title_text"
                 android:maxLines="1"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -101,10 +102,12 @@
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
             app:hintEnabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -114,12 +117,13 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="top|left"
-                android:textSize="18sp"
                 android:fontFamily="@font/gilroy_light"
-                android:textStyle="bold"
+                android:gravity="top|start"
                 android:hint="..."
-                android:inputType="textMultiLine|textCapSentences" />
+                android:inputType="textMultiLine|textCapSentences"
+                android:textColor="@color/subText"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -127,7 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/gilroy_light"
             android:text="High Priority"
             android:textSize="16sp"
@@ -145,7 +149,7 @@
             app:layout_constraintStart_toStartOf="@+id/title_addNotes"
             app:layout_constraintTop_toTopOf="@+id/priorityLabel_addNotes"
             app:srcCompat="@drawable/ic_tick"
-            app:tint="@color/navy_extra_light" />
+            app:tint="@color/high_priority_tick" />
 
         <ImageView
             android:id="@+id/lowPriority_addNotes"
@@ -156,7 +160,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/mediumPriority_addNotes"
             app:layout_constraintStart_toEndOf="@+id/mediumPriority_addNotes"
             app:layout_constraintTop_toTopOf="@+id/mediumPriority_addNotes"
-            app:tint="@color/navy_dark" />
+            app:tint="@color/low_priority_tick" />
 
         <ImageView
             android:id="@+id/mediumPriority_addNotes"
@@ -167,7 +171,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/highPriority_addNotes"
             app:layout_constraintStart_toEndOf="@+id/highPriority_addNotes"
             app:layout_constraintTop_toTopOf="@+id/highPriority_addNotes"
-            app:tint="@color/navy_dark" />
+            app:tint="@color/medium_priority_tick" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,4 +13,25 @@
     <color name="navy_medium">#A6B1E1</color>
     <color name="navy_light">#DCD6F7</color>
     <color name="navy_extra_light">#F4EEFF</color>
+
+    <color name="high_priority_label">#424874</color>
+    <color name="medium_priority_label">#A8AFD0</color>
+    <color name="low_priority_label">#E6E6EC</color>
+
+    <color name="high_priority_tick">#E6E1F9</color>
+    <color name="medium_priority_tick">#4F546F</color>
+    <color name="low_priority_tick">#36394D</color>
+
+    <color name="background">#f9f9f9</color>
+    <color name="title_text">#121212</color>
+    <color name="subText">#121212</color>
+    <color name="surface">#ffffff</color>
+    <color name="no_ripple">#A6B1E1</color>
+    <color name="no_text">#424874</color>
+
+    <color name="filter_text_inactive">#A09C9C</color>
+    <color name="filter_text_active">#ffffff</color>
+    <color name="filter_background_inactive">#E9E6F1</color>
+    <color name="filter_background_active">#424874</color>
+
 </resources>

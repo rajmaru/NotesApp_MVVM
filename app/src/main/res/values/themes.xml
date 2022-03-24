@@ -26,6 +26,7 @@
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
+    <!-- BottomSheet -->
     <style name="AppBottomSheetDialogTheme"
         parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
@@ -35,4 +36,13 @@
         parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/delete_bottomsheet_background</item>
     </style>
+
+
+    <!-- Filtered Chip -->
+    <style name="FilteredChip" parent="Widget.Material3.Chip.Filter.Elevated">
+        <item name="chipBackgroundColor">@color/filter_background</item>
+        <item name="android:textColor">@color/filter_text</item>
+        <item name="checkedIconTint">@color/filter_text</item>
+    </style>
+
 </resources>

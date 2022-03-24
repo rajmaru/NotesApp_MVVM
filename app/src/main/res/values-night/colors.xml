@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="navy_dark">#424874</color>
+    <color name="navy_medium">#A6B1E1</color>
+    <color name="navy_light">#DCD6F7</color>
+    <color name="navy_extra_light">#F4EEFF</color>
+
+    <color name="high_priority_label">#E6E1F9</color>
+    <color name="medium_priority_label">#939DCD</color>
+    <color name="low_priority_label">#36394D</color>
+
+    <color name="high_priority_tick">#424874</color>
+    <color name="medium_priority_tick">#32374E</color>
+    <color name="low_priority_tick">#DCD6F7</color>
+
+    <color name="background">#121212</color>
+    <color name="surface">#202020</color>
+    <color name="title_text">#f9f9f9</color>
+    <color name="subText">#C7C0C0</color>
+    <color name="no_ripple">#ffffff</color>
+    <color name="no_text">#ffffff</color>
+
+    <color name="filter_text_inactive">#7C7878</color>
+    <color name="filter_text_active">#ffffff</color>
+    <color name="filter_background_inactive">#282727</color>
+    <color name="filter_background_active">#424874</color>
+</resources>

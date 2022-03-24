@@ -35,11 +35,11 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         holder.notes.setText(notesEntity.notes);
         holder.date.setText(notesEntity.notesDate);
         if(notesEntity.notesPriority.equals("1")){
-            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.navy_dark));
+            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.high_priority_label));
         }else if(notesEntity.notesPriority.equals("2")){
-            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.navy_medium));
+            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.medium_priority_label));
         }else{
-            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.navy_light));
+            holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.low_priority_label));
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
