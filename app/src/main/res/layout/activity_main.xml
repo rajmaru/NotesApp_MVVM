@@ -110,9 +110,9 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/noFilter"
                 style="@style/FilteredChip"
-                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="No Filter" />
 
             <com.google.android.material.chip.Chip

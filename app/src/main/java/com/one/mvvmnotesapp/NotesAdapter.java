@@ -9,7 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
@@ -33,7 +37,19 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         NotesEntity notesEntity = notesEntityList.get(position);
         holder.title.setText(notesEntity.notesTitle);
         holder.notes.setText(notesEntity.notes);
-        holder.date.setText(notesEntity.notesDate);
+        String sDate = notesEntity.notesDate;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss a", Locale.ENGLISH);
+        try {
+            Date mDate = sdf.parse(sDate);
+            SimpleDateFormat sdf2 = new SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.ENGLISH);
+            if (mDate != null) {
+                sDate = sdf2.format(mDate);
+            }
+            sDate = sDate.replace("PM", "pm").replace("AM", "am");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        holder.date.setText(sDate);
         if(notesEntity.notesPriority.equals("1")){
             holder.priority.setBackgroundColor(mainActivity.getResources().getColor(R.color.high_priority_label));
         }else if(notesEntity.notesPriority.equals("2")){

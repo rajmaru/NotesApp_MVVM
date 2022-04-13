@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -24,11 +25,15 @@ public class UpdateNotes extends AppCompatActivity {
     int id;
     ActivityUpdateNotesBinding binding;
     NotesViewModel notesViewModel;
+    ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_update_notes);
+
+
+        backBtn = findViewById(R.id.backBtn_updateNotes);
 
         //Get Intent
         id = getIntent().getIntExtra("id",0);
@@ -59,6 +64,13 @@ public class UpdateNotes extends AppCompatActivity {
             binding.lowPriorityUpdateNotes.setImageResource(R.drawable.ic_tick);
             binding.priorityLabelUpdateNotes.setText("Low Priority");
         }
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UpdateNotes.super.onBackPressed();
+            }
+        });
 
         //Get Data From User
         binding.highPriorityUpdateNotes.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.one.mvvmnotesapp.databinding.ActivityAddNotesBinding;
@@ -21,6 +22,7 @@ public class AddNotes extends AppCompatActivity {
     ActivityAddNotesBinding binding;
     String title, priority = "1", notes, date;
     NotesViewModel notesViewModel;
+    ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,14 @@ public class AddNotes extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes);
 
         notesViewModel = ViewModelProviders.of(this).get(NotesViewModel.class);
+        backBtn = findViewById(R.id.backBtn_addNotes);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddNotes.super.onBackPressed();
+            }
+        });
 
         binding.highPriorityAddNotes.setOnClickListener(new View.OnClickListener() {
             @Override
