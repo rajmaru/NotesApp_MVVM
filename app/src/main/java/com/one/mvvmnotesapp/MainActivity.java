@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     NotesAdapter adapter;
     ChipGroup chipgroup;
     boolean isGrid = true;
-    int filterId = R.id.noFilter;
+    int filterId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences isGridPreferences = getSharedPreferences("isGridPreferences", MODE_PRIVATE);
         SharedPreferences.Editor gridEditor = isGridPreferences.edit();
         isGrid = isGridPreferences.getBoolean("isGrid", true);
+
+        //Filter ID SharedPrefernces
+        SharedPreferences filterIdPreferences = getSharedPreferences("filterIdPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor filterIdEditor = filterIdPreferences.edit();
+        filterId = filterIdPreferences.getInt("filterId", R.id.noFilter);
 
         //Default users Setting
         layout(isGrid);
@@ -84,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
                 for (int filterID : checkedIds) {
+                    filterId = filterID;
+                    filterIdEditor.putInt("filterId", filterId);
+                    filterIdEditor.apply();
                     filter(filterID);
                 }
             }
@@ -109,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             notesViewModel.getAllNotes.observe(MainActivity.this, new Observer<List<NotesEntity>>() {
                 @Override
                 public void onChanged(List<NotesEntity> notesEntities) {
+                    binding.noFilter.setChecked(true);
                     setadapter(notesEntities, isGrid);
                 }
             });
@@ -117,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
             notesViewModel.getHighToLow.observe(MainActivity.this, new Observer<List<NotesEntity>>() {
                 @Override
                 public void onChanged(List<NotesEntity> notesEntities) {
+                    binding.highToLow.setChecked(true);
                     setadapter(notesEntities, isGrid);
                 }
             });
@@ -125,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
             notesViewModel.getLowToHigh.observe(MainActivity.this, new Observer<List<NotesEntity>>() {
                 @Override
                 public void onChanged(List<NotesEntity> notesEntities) {
+                    binding.lowToHigh.setChecked(true);
                     setadapter(notesEntities, isGrid);
                 }
             });
